@@ -7,7 +7,6 @@ on:
 
 env:
   NODE_VERSION: "20.11.1"
-  PNPM_VERSION: "9.15.5"
 
 jobs:
   setup:
@@ -15,22 +14,24 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Setup environment
-        uses: ./.github/actions/setup
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          pnpm-version: ${{ env.PNPM_VERSION }}
+          cache: "npm"
 
   lint:
     needs: setup
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          pnpm-version: ${{ env.PNPM_VERSION }}
-      - run: pnpm run lint
+          cache: "npm"
+      - run: npm ci # 依存関係を正確にインストール
+      - run: npm run lint
         env:
           DEBUG_URL: ${{ secrets.TEST_DEBUG_URL }}
 
@@ -39,19 +40,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          pnpm-version: ${{ env.PNPM_VERSION }}
-      - run: pnpm run format
+          cache: "npm"
+      - run: npm ci
+      - run: npm run format
 
   typecheck:
     needs: setup
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          pnpm-version: ${{ env.PNPM_VERSION }}
-      - run: pnpm run typecheck
+          cache: "npm"
+      - run: npm ci
+      - run: npm run typecheck

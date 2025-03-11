@@ -10,7 +10,9 @@
     "lint": "next lint",
     "lint:flx": "next lint --fix",
     "typecheck": "tsc --noEmit",
-    "clean": "git clean -xdf node_modules dist"
+    "clean": "git clean -xdf node_modules dist",
+    "format": "prettier --check \"**/*.{ts,tsx,js,jsx,cjs,mjs,md,json,lintstagedrc,yml,yaml}\"",
+    "format:fix": "prettier --write \"**/*.{ts,tsx,js,jsx,cjs,mjs,md,json,lintstagedrc,yml,yaml}\""
   },
   "dependencies": {
     "next": "15.2.1",
@@ -19,6 +21,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
     "@tailwindcss/postcss": "^4",
     "@types/eslint": "^9.6.1",
     "@types/node": "^20",
@@ -29,6 +32,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.2.1",
     "eslint-plugin-unicorn": "^57.0.0",
+    "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

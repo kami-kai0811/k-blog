@@ -1,5 +1,5 @@
 import { HelloUniverse } from "@/components/hello-universe";
-import { Logo } from "@/components/Logo";
+import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { env } from "@/env";
 

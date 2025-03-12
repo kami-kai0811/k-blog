@@ -3,12 +3,9 @@ import { cn } from "@/lib/utils";
 
 import "@/styles/globals.css";
 
+import type { RootLayoutProps } from "@/types";
 import type { Metadata } from "next";
 import { fontNotoSansJP } from "@/fonts";
-
-type RootLayoutProps = {
-  children: React.ReactNode;
-};
 
 export const metadata: Metadata = {
   title: {

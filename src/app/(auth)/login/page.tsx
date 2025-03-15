@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { UserAuthForm } from "@/components/auth/user-auth-form";
 
-export default function Login() {
+function LoginContent() {
   const [authError, setAuthErrorMessage] = useState<boolean>(false);
 
   const searchParams = useSearchParams();
@@ -33,12 +33,10 @@ export default function Login() {
               Welcome Back
             </h1>
           )}
-
           <p className="text-muted-foreground text-sm">
             メールアドレスを入力してログインできます
           </p>
         </div>
-
         <UserAuthForm />
         <p className="text-muted-foreground px-8 text-center text-sm">
           <Link href={"/register"} className="underline underline-offset-4">
@@ -47,5 +45,13 @@ export default function Login() {
         </p>
       </div>
     </div>
+  );
+}
+
+export default function Login() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <LoginContent />
+    </Suspense>
   );
 }

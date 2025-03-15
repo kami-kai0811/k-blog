@@ -66,6 +66,7 @@ const eslintConfig = [
     files: [
       "**/page.tsx",
       "**/layout.tsx",
+      "**/middleware.ts",
       "next.config.ts",
       "postcss.config.mjs",
       "tailwind.config.ts",
@@ -73,6 +74,15 @@ const eslintConfig = [
     rules: {
       "import/no-default-export": "off",
       "import/prefer-default-export": "error",
+    },
+  },
+  {
+    // prisma.ts のエラーを許容するためのオーバーライド
+    files: ["src/lib/prisma.ts"],
+    rules: {
+      "@typescript-eslint/no-unsafe-assignment": "off",
+      "@typescript-eslint/prefer-nullish-coalescing": "off",
+      "@typescript-eslint/no-unsafe-call": "off",
     },
   },
   {

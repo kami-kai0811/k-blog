@@ -66,6 +66,7 @@ const eslintConfig = [
     files: [
       "**/page.tsx",
       "**/layout.tsx",
+      "**/middleware.ts",
       "next.config.ts",
       "postcss.config.mjs",
       "tailwind.config.ts",

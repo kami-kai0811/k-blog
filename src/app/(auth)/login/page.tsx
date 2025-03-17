@@ -1,6 +1,7 @@
 "use client";
 
 import { Suspense, useEffect, useState } from "react";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { UserAuthForm } from "@/components/loginPage/user-auth-form";
 
@@ -20,7 +21,7 @@ function LoginContent() {
   }, [errorMessage]);
 
   return (
-    <div className="container flex h-screen w-screen flex-col items-center justify-center">
+    <div className="container flex h-screen w-screen flex-col items-center justify-center gap-4 px-10">
       <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
         <div className="space-y-2 text-center">
           {authError ? (
@@ -38,6 +39,12 @@ function LoginContent() {
         </div>
         <UserAuthForm />
       </div>
+      <Link
+        href={"/"}
+        className="hover:text-destructive/60 text-destructive border-destructive hover:border-destructive/60 border-b-1"
+      >
+        ホームへ戻る
+      </Link>
     </div>
   );
 }

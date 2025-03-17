@@ -1,12 +1,13 @@
 import type { EmailConfig } from "next-auth/providers";
+import { type Post } from "@prisma/client";
 
 export type RootLayoutProps = {
   children: React.ReactNode;
 };
 
-export type homeNavItem = { title: string; href: string };
+export type NavItem = { title: string; href: string; icon?: string };
 
-export type homeNavListType = homeNavItem[];
+export type NavListType = NavItem[];
 
 export type SendRequestParams = {
   identifier: string;
@@ -18,4 +19,8 @@ export type SendRequestParams = {
 export type Theme = {
   brandColor?: string;
   buttonText?: string;
+};
+
+export type PostProps = {
+  post: Pick<Post, "id" | "title" | "published" | "createdAt">;
 };

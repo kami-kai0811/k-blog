@@ -1,6 +1,6 @@
 "use server";
 
-import { signIn } from "./auth";
+import { signIn, signOut } from "./auth";
 
 export async function signInGithub() {
   await signIn("github");
@@ -13,4 +13,8 @@ export async function signInGoogle() {
 
 export async function signInResend(formData: FormData) {
   await signIn("resend", { email: formData.get("email") });
+}
+
+export async function allSignOut() {
+  await signOut();
 }

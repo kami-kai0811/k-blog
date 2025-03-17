@@ -1,5 +1,5 @@
 import type { RootLayoutProps } from "@/types";
-import { HeaderContent } from "@/components/homePage/header";
+import { HeaderContent } from "@/components/homePage/header-content";
 
 export default function HomePageLayout(props: RootLayoutProps) {
   return (

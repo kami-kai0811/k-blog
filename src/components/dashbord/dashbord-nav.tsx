@@ -21,9 +21,8 @@ export function DashbordNav() {
             : Icons.arrowRight;
 
         return navItem.title === "ログアウト" ? (
-          <Link
+          <span
             key={index}
-            href={"."}
             className={`hover:bg-accent flex cursor-pointer gap-2 rounded-md py-3 pl-5 font-medium text-red-600`}
             onClick={async () => {
               setIsDeleteLoading(true);
@@ -37,7 +36,7 @@ export function DashbordNav() {
             )}
 
             {navItem.title}
-          </Link>
+          </span>
         ) : (
           <Link
             key={index}

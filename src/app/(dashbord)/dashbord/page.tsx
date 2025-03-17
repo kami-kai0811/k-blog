@@ -44,11 +44,17 @@ export default async function Dashbord() {
         </Button>
       </div>
 
-      <div className="mx-auto grid grid-cols-1 gap-8 pt-14 md:grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr]">
-        {posts.map((post) => (
-          <PostItem key={post.id} post={post} />
-        ))}
-      </div>
+      {posts.length ? (
+        <div className="auto-rows-1fr mx-auto grid grid-cols-1 items-center gap-8 pt-14 md:grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr]">
+          {posts.map((post) => (
+            <PostItem key={post.id} post={post} />
+          ))}
+        </div>
+      ) : (
+        <div className="text-muted-foreground mt-36 flex justify-center">
+          投稿がありません
+        </div>
+      )}
     </div>
   );
 }

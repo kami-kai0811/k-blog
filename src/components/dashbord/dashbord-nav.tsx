@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { dashbordNavList } from "@/config/dashbord-nav-config";
@@ -8,6 +9,7 @@ import { allSignOut } from "@/lib/action";
 import { Icon as Icons } from "../global/icon";
 
 export function DashbordNav() {
+  const [isDeleteLoading, setIsDeleteLoading] = useState<boolean>(false);
   const path = usePathname();
   return (
     <nav className="flex w-full flex-col">
@@ -24,10 +26,16 @@ export function DashbordNav() {
             href={"."}
             className={`hover:bg-accent flex cursor-pointer gap-2 rounded-md py-3 pl-5 font-medium text-red-600`}
             onClick={async () => {
+              setIsDeleteLoading(true);
               await allSignOut();
             }}
           >
-            <Icon />
+            {isDeleteLoading ? (
+              <Icons.spinner className="animate-spin" />
+            ) : (
+              <Icon />
+            )}
+
             {navItem.title}
           </Link>
         ) : (

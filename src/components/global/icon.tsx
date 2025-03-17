@@ -14,6 +14,7 @@ import {
   Laptop,
   Loader2,
   LogOut,
+  Menu,
   Moon,
   MoreVertical,
   Pizza,
@@ -49,6 +50,7 @@ export const Icon = {
   laptop: Laptop,
   logout: LogOut,
   info: Info,
+  menu: Menu,
   github: ({ ...props }) => (
     <svg
       aria-hidden="true"

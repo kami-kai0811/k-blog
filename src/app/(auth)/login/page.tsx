@@ -1,9 +1,8 @@
 "use client";
 
 import { Suspense, useEffect, useState } from "react";
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { UserAuthForm } from "@/components/auth/user-auth-form";
+import { UserAuthForm } from "@/components/loginPage/user-auth-form";
 
 function LoginContent() {
   const [authError, setAuthErrorMessage] = useState<boolean>(false);
@@ -38,11 +37,6 @@ function LoginContent() {
           </p>
         </div>
         <UserAuthForm />
-        <p className="text-muted-foreground px-8 text-center text-sm">
-          <Link href={"/register"} className="underline underline-offset-4">
-            アカウントを持っていますか？
-          </Link>
-        </p>
       </div>
     </div>
   );

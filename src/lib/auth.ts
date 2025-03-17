@@ -9,7 +9,7 @@ import { sendVerificationRequest } from "./magic-links";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   adapter: PrismaAdapter(prisma),
-  session: { strategy: "jwt", maxAge: 3600 },
+  session: { strategy: "jwt" },
   providers: [
     ...authConfig.providers,
     Resend({

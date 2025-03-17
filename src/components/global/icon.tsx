@@ -10,8 +10,10 @@ import {
   FileText,
   HelpCircle,
   Image,
+  Info,
   Laptop,
   Loader2,
+  LogOut,
   Moon,
   MoreVertical,
   Pizza,
@@ -45,6 +47,8 @@ export const Icon = {
   sun: SunMedium,
   moon: Moon,
   laptop: Laptop,
+  logout: LogOut,
+  info: Info,
   github: ({ ...props }) => (
     <svg
       aria-hidden="true"

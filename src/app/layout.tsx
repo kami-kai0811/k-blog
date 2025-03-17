@@ -6,6 +6,7 @@ import "@/styles/globals.css";
 import type { RootLayoutProps } from "@/types";
 import type { Metadata } from "next";
 import { fontNotoSansJP } from "@/fonts";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: {
@@ -38,6 +39,7 @@ export default function RootLayout(props: RootLayoutProps) {
         )}
       >
         {props.children}
+        <Toaster />
       </body>
     </html>
   );

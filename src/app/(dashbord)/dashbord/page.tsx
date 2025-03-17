@@ -1,9 +1,8 @@
 import { redirect } from "next/navigation";
+import { PostCreateButton } from "@/components/dashbord/post-create-button";
 import { PostItem } from "@/components/dashbord/post-item";
-import { Button, buttonVariants } from "@/components/ui/button";
 import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/session";
-import { cn } from "@/lib/utils";
 
 export default async function Dashbord() {
   const user = await getCurrentUser();
@@ -34,14 +33,7 @@ export default async function Dashbord() {
           <h1 className="text-3xl font-extrabold md:text-4xl">記事投稿</h1>
           <p className="text-muted-foreground">記事の投稿と管理</p>
         </div>
-        <Button
-          className={cn(
-            buttonVariants({ variant: "default" }),
-            "cursor-pointer",
-          )}
-        >
-          ＋ 新しい投稿
-        </Button>
+        <PostCreateButton />
       </div>
 
       {posts.length ? (

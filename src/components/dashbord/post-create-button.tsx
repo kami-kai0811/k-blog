@@ -27,6 +27,7 @@ export function PostCreateButton() {
     if (!response.ok) {
       return toast("問題が発生しました", {
         description: "投稿が作成されませんでした。もう一度お試しください。",
+        style: { background: "#ff6347" },
       });
     }
 

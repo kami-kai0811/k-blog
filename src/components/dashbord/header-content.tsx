@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -15,6 +16,7 @@ import { allSignOut } from "@/lib/action";
 import { Logo } from "../global/logo";
 
 export function DashbordHeaderContent() {
+  const path = usePathname();
   return (
     <div className="flex items-center">
       <nav className="relative z-10 md:hidden">
@@ -40,7 +42,7 @@ export function DashbordHeaderContent() {
                     <NavigationMenuLink
                       key={index}
                       href={navItem.href}
-                      className="w-3xs"
+                      className={`w-3xs ${navItem.href === path && "bg-black/30"}`}
                     >
                       {navItem.title}
                     </NavigationMenuLink>

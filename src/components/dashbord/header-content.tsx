@@ -24,7 +24,7 @@ export function DashbordHeaderContent() {
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuTrigger className="cursor-pointer">
-                メニュー
+                <span className="hidden sm:flex"> メニュー</span>
               </NavigationMenuTrigger>
               <NavigationMenuContent className="">
                 {dashbordNavList.map((navItem, index) => {

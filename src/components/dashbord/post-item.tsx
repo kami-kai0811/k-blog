@@ -17,7 +17,7 @@ export function PostItem({ post }: PostProps) {
           alt="post image"
           width={300}
           height={30}
-          className="h-auto w-auto rounded-l-lg md:rounded-t-lg"
+          className="hidden h-auto w-auto rounded-l-lg sm:flex md:rounded-t-lg"
           priority
         />
         <div className="flex w-full flex-col pt-2">

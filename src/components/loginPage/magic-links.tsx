@@ -5,9 +5,7 @@ export function MagicLink() {
     <form
       action={async (formData) => {
         "use server";
-        console.log("SignIn");
         const result = await signIn("resend", formData);
-        console.log(result);
       }}
     >
       <input type="text" name="email" placeholder="Email" />

@@ -9,7 +9,6 @@ function LoginContent() {
   const [authError, setAuthErrorMessage] = useState<boolean>(false);
 
   const searchParams = useSearchParams();
-  console.log(searchParams);
   const errorMessage = searchParams.get("error");
 
   useEffect(() => {

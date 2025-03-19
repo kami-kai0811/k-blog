@@ -44,7 +44,10 @@ export function Editor({ post }: { post: Post | null }) {
       inlineToolbar: true,
       tools: {
         header: Header as ToolConstructable | ToolSettings,
-        linkTool: LinkTool as ToolConstructable | ToolSettings,
+        linkTool: {
+          class: LinkTool as ToolConstructable | undefined,
+          config: { endpoint: "/api/links" },
+        },
         list: EditorjsList as ToolConstructable | ToolSettings,
         code: CodeTool as ToolConstructable | ToolSettings,
       },
@@ -135,7 +138,7 @@ export function Editor({ post }: { post: Post | null }) {
             autoFocus
             defaultValue={post?.title}
             placeholder="Post Title"
-            className="w-full resize-none overflow-hidden bg-transparent text-5xl font-bold focus:outline-none md:ml-14"
+            className="w-full resize-none overflow-hidden bg-transparent text-5xl font-bold focus:outline-none"
             {...register("title")}
           />
         </div>

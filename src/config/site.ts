@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "k-blog",
   description: "シンプルで使いやすいブログ投稿プラットフォーム",
-  url: "http://localhost:3000",
+  url: "https://k-blog-sand.vercel.app/",
   links: {
     github: "https://github.com/kami-kai0811",
   },

@@ -9,6 +9,7 @@ import {
   File,
   FileText,
   HelpCircle,
+  House,
   Image,
   Info,
   Laptop,
@@ -51,6 +52,7 @@ export const Icon = {
   logout: LogOut,
   info: Info,
   menu: Menu,
+  home: House,
   github: ({ ...props }) => (
     <svg
       aria-hidden="true"

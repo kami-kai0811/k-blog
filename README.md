@@ -1,7 +1,202 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with
-[`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+<div id="top"></div>
+
+## 使用技術一覧
+
+1. Next.js (App Router) -Web開発向けのReact フレームワーク
+2. Tailwind CSS - CSS ユーティリティフレームワーク
+3. Google Fonts - パフォーマンス重視のフォント管理
+4. Prisma - データベース ORM
+5. TypeScript - 静的型付けを付与したJavaScriptのスーパーセット
+6. Auth.js - 認証の処理・管理を提供するフレームワーク
+7. Editor.js - テキストエディタを提供するフレームワーク
+8. supabase - Firebaseのオープンソース代替として開発されたバックエンドサービス
+
+※詳細はpackage.jsonをご参照ください
+
+## 目次
+
+1. [プロジェクトについて](#プロジェクトについて)
+2. [環境](#環境)
+3. [ディレクトリ構成](#ディレクトリ構成)
+4. [開発環境構築](#開発環境構築)
+
+<!-- プロジェクトについて -->
+
+## プロジェクトについて
+
+### Next.jsを用いた、シンプルかつ使いやすいブログ投稿プラットフォームです。
+- Auth.jsによるメールアドレス、GitHub、Googleを使った柔軟な認証機能を備えています。
+- Editor.jsを用いて、必要最低限のシンプルで直感的なエディター機能を提供しています。
+- supabaseをデータベースとして利用し、ユーザー情報や投稿記事の管理を効率的に行っています。
+
+## 環境
+
+<!-- 言語、フレームワーク、ミドルウェア、インフラの一覧とバージョンを記載 -->
+
+| 言語・フレームワーク | バージョン    |
+| -------------------- | ------------- |
+| React                | 19.0.0        |
+| React DOM            | 19.0.0        |
+| Next.js              | 15.2.1        |
+| NextAuth.js          | 5.0.0-beta.25 |
+| Prisma               | 6.5.0         |
+| Tailwind CSS         | 4.x           |
+| ESLint               | 9.x           |
+| TypeScript           | 5.x           |
+| Node.js              | 20.x          |
+
+その他のパッケージのバージョンは package.json を参照してください
+
+<p align="right">(<a href="#top">トップへ</a>)</p>
+
+## ディレクトリ構成
+
+<!-- Treeコマンドを使ってディレクトリ構成を記載 -->
+
+src 以下のディレクトリ構成
+
+<pre>
+└─src
+    ├─app
+    │  ├─(auth)
+    │  │  └─login
+    │  ├─(dashbord)
+    │  │  └─dashbord
+    │  │      └─use
+    │  ├─(editor)
+    │  │  └─editor
+    │  │      └─[postId]
+    │  ├─(home)
+    │  │  ├─feature
+    │  │  └─use
+    │  └─api
+    │      ├─auth
+    │      │  └─[...nextauth]
+    │      ├─links
+    │      └─posts
+    │          └─[postId]
+    ├─components
+    │  ├─dashbord
+    │  ├─editor
+    │  ├─global
+    │  ├─homePage
+    │  ├─loginPage
+    │  └─ui
+    ├─config
+    ├─fonts
+    ├─lib
+    │  └─validations
+    ├─styles
+    └─types
+</pre>
+
+---
+
+## フォルダ・ファイルの説明
+
+### 📁 app フォルダ
+
+　Next.js の App Router に準拠した、ページとルーティングの管理。
+
+ **`(auth) `**
+ 
+ 　認証関連のページ(ログイン)
+ 
+ **`(dashbord) `**
+ 
+ 　ユーザーダッシュボード（記事管理）
+ 
+ **`(editor) `**
+ 
+　 記事の編集・作成画面
+ 
+ **`(home) `**
+ 
+ 　ブログのホームページ
+ 
+ **`api`**
+ 
+- **`auth`**
+  
+ 　 認証に関するAPI
+  
+- **`links`**
+  
+  editor.jsのリンク機能に関するAPI
+  
+- **`posts`**
+  
+ 　 記事の投稿に関するAPI
+  
+
+
+### 📁 components フォルダ
+
+　再利用可能なコンポーネント群。
+
+- **`dashbord`**
+  
+  　ユーザーダッシュボードのコンポーネント
+  
+- **`editor`**
+  
+ 　　エディタページのコンポーネント
+ 
+- **`global`**
+  
+ 　　グローバルで使うコンポーネント
+ 
+- **`homePage`**
+  
+ 　　 ホームページのコンポーネント
+  
+- **`loginPage`**
+  
+  　　ログインページのコンポーネント
+  
+- **`ui`**
+  
+  　　shadcnのコンポーネント
+
+### 📁 config フォルダ
+
+　アプリケーション設定や初期化を管理。
+
+
+### 📁 lib フォルダ
+
+　汎用的な処理をまとめたユーティリティ。
+
+
+
+### 📁 styles フォルダ
+
+ 　Tailwind CSS をベースとしたグローバルスタイル設定。
+
+
+### 📁 types フォルダ
+
+　　プロジェクト内で使用する型定義。
+
+
+
+
+---
+
+## 🔧 セットアップ方法
+
+### 1. リポジトリのクローン
+
+```bash
+git clone <repository-url>
+cd <repository-directory>
+
+
+```
+
+### 2. 開発環境構築
 
 First, run the development server:
 
@@ -15,35 +210,4 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the
-result.
-
-You can start editing the page by modifying `app/page.tsx`. The page
-auto-updates as you edit the file.
-
-This project uses
-[`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts)
-to automatically optimize and load [Geist](https://vercel.com/font), a new font
-family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
-  features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out
-[the Next.js GitHub repository](https://github.com/vercel/next.js) - your
-feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the
-[Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
-from the creators of Next.js.
-
-Check out our
-[Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying)
-for more details.
+[http://localhost:3000]を開く
